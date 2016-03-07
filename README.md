@@ -35,18 +35,18 @@ public function behaviors()
 ## How it works
 ## Changeslog model
 
-Model Changeslog used to save chages into database. Only changed attributes are logged. Every log message consist of:
-    - title => action, which create this record. May be Create, Update, Delete etc
-    - old_message => list of attributes before change
-    - new_message => list of attributes after change
-    - ip => ip-adrres of event initiator
-    - entity_id => id-key of entity, which was changed
-    - entity_key => class of entity, which was changed
-    - date => time, when change was made
+    Model Changeslog used to save chages into database. Only changed attributes are logged. Every log message consist of:
+* title => action, which create this record. May be Create, Update, Delete etc
+* old_message => list of attributes before change
+* new_message => list of attributes after change
+* ip => ip-adrres of event initiator
+* entity_id => id-key of entity, which was changed
+* entity_key => class of entity, which was changed
+* Date => time, when change was made
 
-There is also two static functions, which you can use in other parts of applications:
-    - addToLog => create custom log message, without saving models. I am using it at batch sql-queries, where model objects are not welcome
-    - getKeyEntities => get distinct list of entities. Im using it to build filter forms
+    There is also two static functions, which you can use in other parts of applications:
+* addToLog => create custom log message, without saving models. I am using it at batch sql-queries, where model objects are not welcome
+* getKeyEntities => get distinct list of entities. Im using it to build filter forms
     
     
 ## CLogBehavior
