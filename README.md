@@ -1,6 +1,6 @@
 # Yii-LogBehavior
 
-This extension helps to monitor model changes at application. It allows to gather and compare model attributes before and after changes including relations
+This extension helps to monitor model attributes and relations changes. It allows to gather and compare model attributes before and after changes including relations
 
 ## Requirements
 
