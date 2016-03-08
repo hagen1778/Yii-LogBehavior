@@ -1,21 +1,21 @@
 # Yii-LogBehavior
 
-This extension helps to monitor model attributes and relations changes. It allows to gather and compare model attributes before and after changes including relations
+This extension helps to monitor changes of model attributes and relations. It allows to gather and compare model attributes before and after changes including relations
 
 ## Requirements
 
 * Yii 1.1.6 or above
-* As Yii Framework this behavior is compatible with all PHP versions above 5.5
+* This behavior is compatible with all PHP versions above 5.5
 * Behavior will only work for ActiveRecord classes that have primary key defined.
 
 ## How to install
 
-1. Get the source in one of the following ways:
+1. Get the source:
    * [Download](https://github.com/hagen1778/Yii-LogBehavior) 
    Files are already placed at standard structure:
-   * /models/Changeslog.php
-   * /extensions/CLogBehavior
-   * /migrations/m160307_180300_changeslog
+   * Model: /models/Changeslog.php
+   * Behavior: /extensions/CLogBehavior
+   * Migration for model: /migrations/m160307_180300_changeslog
 2. Apply migration: ./yiic migrate
 3. Add it to the models you want to use it with, by adding it to the `behaviors()` method.
 
@@ -36,10 +36,10 @@ public function behaviors()
 ## Changeslog model
 
     Model Changeslog used to save chages into database. Only changed attributes are logged. Every log message consist of:
-* title => action, which create this record. May be Create, Update, Delete etc
+* title => action, which create this record. It may be Create, Update, Delete etc
 * old_message => list of attributes before change
 * new_message => list of attributes after change
-* ip => ip-adrres of event initiator
+* ip => ip-address of event initiator
 * entity_id => id-key of entity, which was changed
 * entity_key => class of entity, which was changed
 * Date => time, when change was made
@@ -51,9 +51,9 @@ public function behaviors()
     
 ## CLogBehavior
 
-CLogBehavior is used to store previous state of model object and to make comparison after some change of this object.
+CLogBehavior is used to store previous state of model object and to make comparison after some changes of this object.
 Behavior use Changeslog model to store processed data. 
-You can easily adjust behavior or model to store something additional. Its can be id-key of owner of changed entity, or additional custom title of each message.
+You can easily adjust behavior or model to store something additional. Its can be id-key of owner of changed entity, or additional custom title for each message.
 There are some additional options, which you can use:
 
 ~~~php
@@ -70,9 +70,9 @@ public function behaviors()
 }
 ~~~
 withRelations - allow to parse relations of changed object. Relations are converted to two-dimensional array, all levels deeper than 2d level will be abandoned. 
-This options is disabled by default, because sometimes it may take extra time while working with heavy objects or thousands of related objects. Thats why, you have to be careful.
+This option is disabled by default, because sometimes it may take extra time while working with heavy objects or thousands of related objects. Thats why, you have to be careful.
 
-trigger - additional check before behavior running. May contain lambda-function. I am using it to control model changes from CLI. For ecxample:
+trigger - additional check before behavior running. May contain lambda-function. I am using it to control model changes from CLI. For example:
 ~~~php
 <?php
 public function behaviors()
